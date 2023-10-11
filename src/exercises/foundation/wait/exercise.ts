@@ -3,4 +3,10 @@ type Context = {
 };
 
 export default ({ setTimeout }: Context) =>
-  (ms: number) => {};
+  (ms: number) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(null);
+      }, ms);
+    });
+  };
