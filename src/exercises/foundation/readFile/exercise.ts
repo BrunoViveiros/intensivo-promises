@@ -5,4 +5,14 @@ type Context = {
 };
 
 export default ({ readFile }: Context) =>
-  (path: string) => {};
+  (path: string) => {
+    return new Promise((resolve, reject) => {
+      readFile(path, (err, res) => {
+        if (err) {
+          reject(err);
+        }
+
+        resolve(res);
+      });
+    });
+  };
